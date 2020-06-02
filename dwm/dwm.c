@@ -978,6 +978,15 @@ drawbar(Monitor *m)
 
                 barOrder[currElemIndex].xpos = x;
                 barOrder[currElemIndex].w = sum;
+               
+               if((currElemIndex == lastElemIndex) && (currElem.align == RIGHT))
+                {
+                    drw_setscheme(drw,scheme[SchemeNorm]);
+                    drw_rect(drw, x, 0, m->ww-x-sum, bh, 1, 1);
+
+                    x = m->ww - sum;
+                    barOrder[currElemIndex].xpos = x;
+                }
                 if(clfront)
                 {
                     int iw = tagindicatorselwidth;
@@ -996,14 +1005,7 @@ drawbar(Monitor *m)
                     nl = nl - 1;
                 } 
                 
-                if((currElemIndex == lastElemIndex) && (currElem.align == RIGHT))
-                {
-                    drw_setscheme(drw,scheme[SchemeNorm]);
-                    drw_rect(drw, x, 0, m->ww-x-sum, bh, 1, 1);
-
-                    x = m->ww - sum;
-                    barOrder[currElemIndex].xpos = x;
-                }
+                
             
                 for (int i = 0; i < ((clfront) ? (nl+1) : nl); i++)
                 {
@@ -1050,7 +1052,7 @@ drawbar(Monitor *m)
 
                 if(currElemIndex == lastElemIndex && (currElem.align = RIGHT))
                 {            
-                    if(fill)
+                    if(!fill)
                     {
                         drw_setscheme(drw, scheme[SchemeNorm]);
                         drw_rect(drw, x, 0, m->ww-x-w, bh, 1, 1);
@@ -1062,7 +1064,7 @@ drawbar(Monitor *m)
 
                 else if(currElemIndex == lastElemIndex && (currElem.align != RIGHT))
                 {
-                    if(fill)
+                    if(!fill)
                     {
                         drw_setscheme(drw, scheme[SchemeNorm]);
                         drw_rect(drw, x, 0, m->ww-x, bh, 1, 1);
