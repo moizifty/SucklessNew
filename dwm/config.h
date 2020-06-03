@@ -58,7 +58,7 @@ static const unsigned int titlemaxwidth = 250;  // this sets the max width of ti
 static const unsigned int titleminwidth = 150; // this sets minimum width of title bar
 static const unsigned int titlewidthfittext = 0; //this makes it so the width of the title bar fits the text with respect to max length of bar
 
-static const unsigned int titleintform = 6;  // this is the max number of words the title bar can display (max length over rides this)
+static const unsigned int titleintform = 6;  // this is the max number of words the title bar can display (max length over rides this if the words dont fit)
 static const char titleFormat[] = "w"; // IGNORE THIS, this isnt implemented fully yet
 
 // keybinding is available for this, to toggle it. function is called togglealttitle
