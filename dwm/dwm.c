@@ -924,8 +924,8 @@ drawbar(Monitor *m)
                             int indX = (tagIndHAlign == CENTER) ? x + w/2 - iw/2 : ((tagIndHAlign == RIGHT) ? x + w - iw : x);
                             int indY = (tagIndVAlign == TOP) ? 0 : bh - tagindicatorheight;
                             drw_rect(drw, indX , indY, iw, tagindicatorheight,
-                                1,//m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-                                0);//urg && 1 << 1);
+                                m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+                                urg && 1 << 1);
                         }
                         x += w;
                     }
